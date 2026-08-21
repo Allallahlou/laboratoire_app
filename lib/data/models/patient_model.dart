@@ -25,7 +25,7 @@ class Patient extends Equatable {
 
   String get fullName => '$prenom $nom';
 
-  Map<String, dynamic> toMap() => {
+  Map<String, dynamic> toJson() => {
     'id': id,
     'nom': nom,
     'prenom': prenom,
@@ -37,16 +37,16 @@ class Patient extends Equatable {
     'created_at': createdAt?.toIso8601String(),
   };
 
-  factory Patient.fromMap(Map<String, dynamic> map) => Patient(
-    id: map['id'] as int?,
-    nom: map['nom'] as String,
-    prenom: map['prenom'] as String,
-    dateNaissance: DateTime.parse(map['date_naissance']),
-    telephone: map['telephone'] as String,
-    email: map['email'] as String?,
-    adresse: map['adresse'] as String?,
-    sexe: map['sexe'] as String?,
-    createdAt: map['created_at'] != null ? DateTime.parse(map['created_at']) : null,
+  factory Patient.fromJson(Map<String, dynamic> json) => Patient(
+    id: json['id'] as int?,
+    nom: json['nom'] as String,
+    prenom: json['prenom'] as String,
+    dateNaissance: DateTime.parse(json['date_naissance']),
+    telephone: json['telephone'] as String,
+    email: json['email'] as String?,
+    adresse: json['adresse'] as String?,
+    sexe: json['sexe'] as String?,
+    createdAt: json['created_at'] != null ? DateTime.parse(json['created_at']) : null,
   );
 
   Patient copyWith({

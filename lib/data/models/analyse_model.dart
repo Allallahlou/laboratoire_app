@@ -19,7 +19,7 @@ class Analyse extends Equatable {
     this.normes,
   });
 
-  Map<String, dynamic> toMap() => {
+  Map<String, dynamic> toJson() => {
     'id': id,
     'nom': nom,
     'categorie': categorie,
@@ -29,14 +29,14 @@ class Analyse extends Equatable {
     'normes': normes,
   };
 
-  factory Analyse.fromMap(Map<String, dynamic> map) => Analyse(
-    id: map['id'] as int?,
-    nom: map['nom'] as String,
-    categorie: map['categorie'] as String,
-    prix: (map['prix'] as num).toDouble(),
-    delaiHeures: map['delai_heures'] as int,
-    description: map['description'] as String?,
-    normes: map['normes'] as String?,
+  factory Analyse.fromJson(Map<String, dynamic> json) => Analyse(
+    id: json['id'] as int?,
+    nom: json['nom'] as String,
+    categorie: json['categorie'] as String,
+    prix: (json['prix'] as num).toDouble(),
+    delaiHeures: json['delai_heures'] as int,
+    description: json['description'] as String?,
+    normes: json['normes'] as String?,
   );
 
   Analyse copyWith({

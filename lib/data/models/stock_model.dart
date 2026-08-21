@@ -23,7 +23,7 @@ class StockItem extends Equatable {
 
   bool get isLowStock => quantite <= quantiteMin;
 
-  Map<String, dynamic> toMap() => {
+  Map<String, dynamic> toJson() => {
     'id': id,
     'nom': nom,
     'categorie': categorie,
@@ -34,15 +34,15 @@ class StockItem extends Equatable {
     'fournisseur': fournisseur,
   };
 
-  factory StockItem.fromMap(Map<String, dynamic> map) => StockItem(
-    id: map['id'] as int?,
-    nom: map['nom'] as String,
-    categorie: map['categorie'] as String,
-    quantite: map['quantite'] as int,
-    quantiteMin: map['quantite_min'] as int,
-    unite: map['unite'] as String?,
-    dateExpiration: map['date_expiration'] != null ? DateTime.parse(map['date_expiration']) : null,
-    fournisseur: map['fournisseur'] as String?,
+  factory StockItem.fromJson(Map<String, dynamic> json) => StockItem(
+    id: json['id'] as int?,
+    nom: json['nom'] as String,
+    categorie: json['categorie'] as String,
+    quantite: json['quantite'] as int,
+    quantiteMin: json['quantite_min'] as int,
+    unite: json['unite'] as String?,
+    dateExpiration: json['date_expiration'] != null ? DateTime.parse(json['date_expiration']) : null,
+    fournisseur: json['fournisseur'] as String?,
   );
 
   StockItem copyWith({
